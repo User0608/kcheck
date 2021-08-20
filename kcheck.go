@@ -1,16 +1,19 @@
 package kcheck
 
 type KChecker interface {
-	Traget(string, ...string) Validater
+	Target(string, ...string) Validater
 }
+
 type kcheck struct {
-	val validate
+	//val validate
 }
 
 func New() KChecker {
 	return &kcheck{}
 }
-func (k *kcheck) Traget(pattern string, targets ...string) Validater {
+
+// Target pattern: patrones de validacion, targets, objetivos
+func (k *kcheck) Target(pattern string, targets ...string) Validater {
 	v := newValidate(pattern, targets)
 	return v
 }
